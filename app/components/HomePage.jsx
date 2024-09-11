@@ -123,6 +123,7 @@ function HomePage() {
       dispatch(setQuestions(decodedQuestions));
     } catch (error) {
       console.error('Error fetching questions:', error)
+      toast.error('Error fetching questions!!!')
     }
   }
 
@@ -257,7 +258,7 @@ function HomePage() {
             Quit
           </button>
           <div className='absolute text-center top-1'>
-            <p className='text-xs'>category: {selectedCategory}</p>
+            <p className='text-xs'>{selectedCategory}</p>
             <p className='mt-4 '>Score: <span className={`${score>10 ? 'text-blue-600' : score>20 ? 'text-green-600' : ''}`}>{score}</span></p>
             <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
             <p className={`${isFrozen ? 'text-emerald-300 font-extrabold font-mono' : ''} text-xl mb-2 ${timeLeft<10 ? 'animate-ping text-red-600' : '' }  mt-5`}>{timeLeft}</p>
@@ -347,17 +348,20 @@ function HomePage() {
           </button>
         </div>
       ) : (
-        <div className='bg-black w-full h-screen text-white flex flex-col justify-center items-center'>
-          <p>Welcome to Q<span className='font-bold font-serif text-zinc-400'>U</span>Z</p>
+        <div className='bg-black w-full h-screen text-white flex flex-col justify-center items-center font-mono'>
+
+          <img src="./QUZlogo.png" alt="" className='w-40 md:w-60'/>
+
+          <p className='md:text-2xl text-xl'>Welcome to Q<span className='font-bold font-serif text-red-600 '>U</span>Z</p>
           {/* <p className='mt-4'>Select Your Preference</p> */}
-          <div className='mt-4 flex flex-col'>
+          <div className='mt-4 flex flex-col '>
             {/* <button className='mb-4' onClick={() => setChoice1('selected')}>
               Programing / Coding
             </button> */}
 
             <label htmlFor="category">Choose a category:</label>
             <select
-                className='text-white font-bold bg-transparent'
+                className='text-white font-bold bg-transparent mt-4'
                 id="category"
                 name="category"
                 value={selectedCategory}
@@ -374,7 +378,7 @@ function HomePage() {
 
 
 
-            <button className='mb-4 mt-3' onClick={() => {
+            <button className='mb-4 mt-5 border-2' onClick={() => {
               dispatch(setChoice1('all'))
               dispatch(setScore(0)) 
               dispatch(setCurrentQuestionIndex(0)) 
