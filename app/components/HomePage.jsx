@@ -11,7 +11,7 @@ import {
   setTimeLeft,
   setIsFrozen,
  } from '../store/quizSlice'
-//  import Image from 'next/image';
+
 import { Toaster } from 'react-hot-toast'
 import toast from 'react-hot-toast'
 
@@ -19,10 +19,12 @@ import toast from 'react-hot-toast'
 
 function HomePage() {
   const [removedOptions, setRemovedOptions] = useState([]);
-  const [freezCount, setFreezCount] = useState(2); 
-  const [removeOptsCount, setRemoveOptsCount] = useState(1); 
-  const [selectedCategory, setSelectedCategory] = useState('all'); 
+  const [freezCount, setFreezCount] = useState(3); 
+  const [removeOptsCount, setRemoveOptsCount] = useState(3); 
+  const [selectedCategory, setSelectedCategory] = useState('All'); 
   const [api,setApi] = useState('https://opentdb.com/api.php?amount=25')
+  const [loading ,setLoading] = useState(false)
+  const [theme,setTheme] = useState('default')
 
 
    
@@ -120,10 +122,12 @@ function HomePage() {
         correct_answer: decodeHTMLEntities(q.correct_answer),
         incorrect_answers: q.incorrect_answers.map(decodeHTMLEntities)
       }))
+      setLoading(false)
       dispatch(setQuestions(decodedQuestions));
     } catch (error) {
       console.error('Error fetching questions:', error)
-      toast.error('Error fetching questions!!!')
+      toast.error('Connection Time Out!!!')
+      setLoading(true)
     }
   }
 
@@ -144,17 +148,13 @@ function HomePage() {
     const nextIndex = currentQuestionIndex + 1;
     if (nextIndex < questions.length) {
       dispatch(setCurrentQuestionIndex(nextIndex));
+      dispatch(setTimeLeft(30));
     } else {
       dispatch(setChoice1('finished'));
     }
     dispatch(setTimeLeft(30));
   };
   
-
-    
-
-   
-
 
 
 
@@ -193,6 +193,7 @@ function HomePage() {
       handleMysteryBox(); 
     }
   }, [score]);
+
   
   
 
@@ -227,6 +228,7 @@ function HomePage() {
     }
     dispatch(setIsFrozen(false));
   };
+
   
   //---------------------------------------------------------------
   
@@ -235,8 +237,18 @@ function HomePage() {
 
 
 
-  if (!questions) {
-    return <>loading....</>
+  if (loading) {
+    return<><Toaster
+    position="top-center"
+    reverseOrder={false}
+  />
+    <div className='bg-black flex justify-center items-center font-mono text-lg font-bold w-full h-screen text-white '>
+      
+      
+      <p className='animate-pulse'>loading....</p>
+      </div>
+      </>
+    
   }
 
   return (
@@ -254,9 +266,15 @@ function HomePage() {
         </div>
       ) : choice1 === 'all' ? (
         <div className={`flex justify-center items-center w-full h-screen bg-black text-white`}>
-          <button className='mb-4 absolute top-2 left-2' onClick={() => dispatch(setChoice1('default'))}>
+          <button className='mb-5 absolute top-2 left-2' onClick={() => dispatch(setChoice1('default'))}>
             Quit
           </button>
+          <div className='mb-4 flex absolute top-11 left-2'>
+            <p onClick={()=>setTheme('amber')} className='mr-4 bg-amber-500 w-5 h-5'/>
+            <p onClick={()=>setTheme('red')} className='mr-4 w-5 h-5 bg-red-600'/>
+            <p onClick={()=>setTheme('violet')} className='mr-4 w-5 h-5 bg-violet-600'/>
+            <p onClick={()=>setTheme('default')} className='bg-emerald-500 w-5 h-5'/>
+          </div>
           <div className='absolute text-center top-1'>
             <p className='text-xs'>{selectedCategory}</p>
             <p className='mt-4 '>Score: <span className={`${score>10 ? 'text-blue-600' : score>20 ? 'text-green-600' : ''}`}>{score}</span></p>
@@ -306,7 +324,9 @@ function HomePage() {
              
              
               <div className={` flex flex-col items-center justify-center `}>
-                <h1 className={` relative -top-10 break-all text-center bg-emerald-700 rounded-md p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-200 font-bold' }`}>
+                <h1 className={`${timeLeft < 7 ? ' ' : ' '} relative -top-10 break-all text-center ${theme == 'amber' ? 'bg-amber-500' : theme == 'violet' ? 'bg-violet-600' : theme == 'red' ? 'bg-red-600' : 'bg-emerald-700 ' } rounded-md p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-200 font-bold' }`}
+                 
+                 >
                   {currentQuestion.question}
                 </h1>
                 <div className='mt-4'>
@@ -367,12 +387,12 @@ function HomePage() {
                 value={selectedCategory}
                 onChange={handleCategoryChange}
               >
-              <option className='text-black font-bold' value="all">All</option>
+              <option className='text-black font-bold' value="All">All</option>
               <option className='text-black font-bold' value="movies">Movies</option>
               <option className='text-black font-bold' value="games">Games</option>
               <option className='text-black font-bold' value="computers">Computers/Tech</option>
               <option className='text-black font-bold' value="music">Music</option>
-              <option className='text-black font-bold' value="Vehicles">vehicles</option>
+              <option className='text-black font-bold' value="Vehicles">Vehicles</option>
             </select>
 
 
