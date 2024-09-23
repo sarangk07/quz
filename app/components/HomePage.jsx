@@ -3,6 +3,7 @@
 import React, { useEffect, useState,useMemo,useCallback } from 'react'
 import axios from 'axios'
 import { useDispatch,useSelector } from 'react-redux'
+import Image from 'next/image'
 import { 
   setChoice1,
   setQuestions,
@@ -206,7 +207,7 @@ function HomePage() {
           icon: '❄️',
           style: {
             borderRadius: '10px',
-            background: '#333',
+            background: 'transparent',
             color: '#fff',
           },
         }
@@ -219,7 +220,7 @@ function HomePage() {
           icon: '🗞️',
           style: {
             borderRadius: '10px',
-            background: '#333',
+            background: 'transparent',
             color: '#fff',
           },
         }
@@ -295,7 +296,7 @@ function HomePage() {
             <>
             <button className='mr-5 flex flex-col items-center' onClick={handleRemoveOpts } disabled={removeOptsCount === 0}>
               <span className='font-mono text-xs'>Strike 2</span>
-              <img src="./remove2.png" alt="remove" className='w-10'/>
+              <Image src="/remove2.png" alt="remove"  width={40} height={40}/>
               <span className='text-xs'>
               ({removeOptsCount})
               </span>
@@ -311,7 +312,7 @@ function HomePage() {
               disabled={freezCount === 0} 
             >
               <span className='font-mono text-xs'>Freeze</span>
-              <img src="./freeze.png" alt="freeze" className='w-10'/>
+              <Image src="/freeze.png" alt="freeze" width={45} height={45}/>
               <span className='text-xs'>({freezCount})</span>
             </button>
 
@@ -370,7 +371,7 @@ function HomePage() {
       ) : (
         <div className='bg-black w-full h-screen text-white flex flex-col justify-center items-center font-mono'>
 
-          <img src="./QUZlogo.png" alt="" className='w-40 md:w-60'/>
+          <Image src="/QUZlogo.png" alt="" width={200} height={200} />
 
           <p className='md:text-2xl text-xl'>Welcome to Q<span className='font-bold font-serif text-red-600 '>U</span>Z</p>
           {/* <p className='mt-4'>Select Your Preference</p> */}
