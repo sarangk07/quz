@@ -13,6 +13,8 @@ import {
   setIsFrozen,
  } from '../store/quizSlice'
 
+import { HashLoader } from 'react-spinners'
+
 import { Toaster } from 'react-hot-toast'
 import toast from 'react-hot-toast'
 
@@ -116,6 +118,7 @@ function HomePage() {
 
   const fetchQuestions = async () => {
     try {
+      setLoading(true)
       const response = await axios.get(api)
       const decodedQuestions = response.data.results.map(q => ({
         ...q,
@@ -123,12 +126,13 @@ function HomePage() {
         correct_answer: decodeHTMLEntities(q.correct_answer),
         incorrect_answers: q.incorrect_answers.map(decodeHTMLEntities)
       }))
-      setLoading(false)
+      
       dispatch(setQuestions(decodedQuestions));
+      setLoading(false)
     } catch (error) {
       console.error('Error fetching questions:', error)
-      toast.error('Connection Time Out!!!')
-      setLoading(true)
+      toast.error('Connection Time Out!!! Try Again')
+      
     }
   }
 
@@ -239,16 +243,12 @@ function HomePage() {
 
 
   if (loading) {
-    return<><Toaster
+    return<div className='flex justify-center items-center w-full h-screen'><Toaster
     position="top-center"
     reverseOrder={false}
   />
-    <div className='bg-black flex justify-center items-center font-mono text-lg font-bold w-full h-screen text-white '>
-      
-      
-      <p className='animate-pulse'>loading....</p>
+    <HashLoader color={'#4be8b9'}/>
       </div>
-      </>
     
   }
 
