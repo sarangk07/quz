@@ -14,7 +14,6 @@ import {
  } from '../store/quizSlice'
 
 import { HashLoader } from 'react-spinners'
-
 import { Toaster } from 'react-hot-toast'
 import toast from 'react-hot-toast'
 
@@ -71,10 +70,8 @@ function HomePage() {
     choice1,questions,currentQuestionIndex,score,timeLeft,isFrozen,
   } = useSelector((state) => state.quiz);
 
-  // Memoize the questions array----------------------
   const memoizedQuestions = useMemo(() => questions, [questions])
 
-  // Memoize the shuffleArray function--------------------
   const shuffleArray = useCallback((array) => {
     const shuffled = [...array]
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -84,7 +81,7 @@ function HomePage() {
     return shuffled;
   }, []);
 
-  // Memoize the getNextQuestion function
+ 
   const getNextQuestion = useCallback((index) => {
     const question = memoizedQuestions[index]
     if (!question) return null
@@ -92,11 +89,8 @@ function HomePage() {
     return { ...question, options }
   }, [memoizedQuestions, shuffleArray])
 
-
-  // Memoize the current question-----------------------
   const currentQuestion = useMemo(() => getNextQuestion(currentQuestionIndex), [getNextQuestion, currentQuestionIndex]);
   
-
   useEffect(() => {
     if (choice1 === 'all') {
       fetchQuestions()
@@ -179,7 +173,6 @@ function HomePage() {
     }
   };
   
-
   const handleRemoveOpts = () => {
     if (removeOptsCount > 0 && currentQuestion) {
       const incorrectAnswers = currentQuestion.options.filter(
@@ -191,16 +184,12 @@ function HomePage() {
     }
   };
   
-
   useEffect(() => {
     if ([5, 8,11, 14,17, 20, 23].includes(score)) {
       dispatch(setIsFrozen(true)); 
       handleMysteryBox(); 
     }
   }, [score]);
-
-  
-  
 
   const handleMysteryBox = () => {
     const random = Math.random();
@@ -234,22 +223,17 @@ function HomePage() {
     dispatch(setIsFrozen(false));
   };
 
-  
   //---------------------------------------------------------------
   
-  
-
-
-
 
   if (loading) {
-    return<div className='flex justify-center items-center w-full h-screen'><Toaster
-    position="top-center"
-    reverseOrder={false}
-  />
-    <HashLoader color={'#4be8b9'}/>
+    return<div className='flex justify-center items-center w-full h-screen'>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
+        <HashLoader color={'#4be8b9'}/>
       </div>
-    
   }
 
   return (
@@ -282,11 +266,10 @@ function HomePage() {
             <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
             <p className={`${isFrozen ? 'text-emerald-300 font-extrabold font-mono' : ''} text-xl mb-2 ${timeLeft<10 ? 'animate-ping text-red-600' : '' }  mt-5`}>{timeLeft}</p>
           </div>
+
           {/* {mysteryBoxAvailable && (
               <button onClick={handleMysteryBox}>Open Mystery Box</button>
             )} */}
-
-
 
           <div className='absolute flex bottom-2'>
             {currentQuestion && currentQuestion.type == 'boolean' ?
@@ -303,9 +286,6 @@ function HomePage() {
               </button>
             </>
             }
-            
-
-            
 
             <button  className='flex flex-col items-center'
               onClick={handleFreez} 
@@ -315,19 +295,13 @@ function HomePage() {
               <Image src="/freeze.png" alt="freeze" width={45} height={45}/>
               <span className='text-xs'>({freezCount})</span>
             </button>
-
-
-            {/* <p></p> */}
           </div>
                 
           {currentQuestion && (
             <div className='relative flex justify-center items-center md:w-[720px] md:h-[500px] w-72 h-64 '>
              
-             
               <div className={` flex flex-col items-center justify-center `}>
-                <h1 className={`${timeLeft < 7 ? ' ' : ' '} relative -top-10 break-all text-center ${theme == 'amber' ? 'bg-amber-500' : theme == 'violet' ? 'bg-violet-600' : theme == 'red' ? 'bg-red-600' : 'bg-emerald-700 ' } rounded-md p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-200 font-bold' }`}
-                 
-                 >
+                <h1 className={`${timeLeft < 7 ? ' ' : ' '} relative -top-10 break-all text-center ${theme == 'amber' ? 'bg-amber-500' : theme == 'violet' ? 'bg-violet-600' : theme == 'red' ? 'bg-red-600' : 'bg-emerald-700 ' } rounded-md p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-200 font-bold' }`}>
                   {currentQuestion.question}
                 </h1>
                 <div className='mt-4'>
@@ -341,7 +315,6 @@ function HomePage() {
                     <p className={`p-1 cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold ${removedOptions.includes(currentQuestion.options[1]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[1])}>
                       {currentQuestion.options[1]}
                     </p>
-
                   
                     <p className={`${currentQuestion && currentQuestion.type == "boolean" ?" " :' p-1' } cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold  ${removedOptions.includes(currentQuestion.options[2]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[2])}>{currentQuestion.options[2]}</p>
                     <p className={`${currentQuestion && currentQuestion.type == "boolean" ?" " :' p-1' } cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold  ${removedOptions.includes(currentQuestion.options[3]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[3])}>{currentQuestion.options[3]}</p>
@@ -395,9 +368,6 @@ function HomePage() {
               <option className='text-black font-bold' value="music">Music</option>
               <option className='text-black font-bold' value="Vehicles">Vehicles</option>
             </select>
-
-
-
 
             <button className='mb-4 mt-5 border-2' onClick={() => {
               dispatch(setChoice1('all'))
