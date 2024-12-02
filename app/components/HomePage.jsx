@@ -4,6 +4,8 @@ import React, { useEffect, useState,useMemo,useCallback } from 'react'
 import axios from 'axios'
 import { useDispatch,useSelector } from 'react-redux'
 import Image from 'next/image'
+import quizData from '../localData/quzQandA'
+// import DataProvider from '../store/dataProvider'
 import { 
   setChoice1,
   setQuestions,
@@ -55,6 +57,9 @@ function HomePage() {
       case 'Vehicles':
         apiUrl = 'https://opentdb.com/api.php?amount=25&category=28'; 
         break;
+      case 'Programing':
+        apiUrl = ''; 
+        break;
       default:
         apiUrl = 'https://opentdb.com/api.php?amount=25';
         break;
@@ -71,6 +76,7 @@ function HomePage() {
   } = useSelector((state) => state.quiz);
 
   const memoizedQuestions = useMemo(() => questions, [questions])
+console.log(questions,'qstiong,,,,,,,,,,,,,,');
 
   const shuffleArray = useCallback((array) => {
     const shuffled = [...array]
@@ -110,25 +116,54 @@ function HomePage() {
   }, [timeLeft, choice1, isFrozen]) 
   
 
+  // const fetchQuestions = async () => {
+  //   try {
+  //     setLoading(true)
+  //     const response = await axios.get(api)
+  //     const decodedQuestions = response.data.results.map(q => ({
+  //       ...q,
+  //       question: decodeHTMLEntities(q.question),
+  //       correct_answer: decodeHTMLEntities(q.correct_answer),
+  //       incorrect_answers: q.incorrect_answers.map(decodeHTMLEntities)
+  //     }))
+      
+  //     dispatch(setQuestions(decodedQuestions));
+  //     setLoading(false)
+  //   } catch (error) {
+  //     console.error('Error fetching questions:', error)
+  //     toast.error('Connection Time Out!!! Try Again')
+      
+  //   }
+  // }
+
+
+
   const fetchQuestions = async () => {
     try {
-      setLoading(true)
-      const response = await axios.get(api)
-      const decodedQuestions = response.data.results.map(q => ({
-        ...q,
-        question: decodeHTMLEntities(q.question),
-        correct_answer: decodeHTMLEntities(q.correct_answer),
-        incorrect_answers: q.incorrect_answers.map(decodeHTMLEntities)
-      }))
-      
-      dispatch(setQuestions(decodedQuestions));
-      setLoading(false)
+        setLoading(true);
+        if (selectedCategory === 'Programing') {    
+            const shuffledQuizData = shuffleArray(quizData);
+            dispatch(setQuestions(shuffledQuizData));
+        } else {
+            
+            const response = await axios.get(api);
+            const decodedQuestions = response.data.results.map(q => ({
+                ...q,
+                question: decodeHTMLEntities(q.question),
+                correct_answer: decodeHTMLEntities(q.correct_answer),
+                incorrect_answers: q.incorrect_answers.map(decodeHTMLEntities)
+            }));
+            dispatch(setQuestions(decodedQuestions));
+        }
+        
+        setLoading(false);
     } catch (error) {
-      console.error('Error fetching questions:', error)
-      toast.error('Connection Time Out!!! Try Again')
-      
+        console.error('Error fetching questions:', error);
+        toast.error('Connection Time Out!!! Try Again');
+        setLoading(false);
     }
-  }
+};
+
 
   const decodeHTMLEntities = (text) => {
     const textArea = document.createElement('textarea')
@@ -250,6 +285,8 @@ function HomePage() {
           selected
         </div>
       ) : choice1 === 'all' ? (
+        <>
+        {/* {selectedCategory == 'Programing' ? <><>:<></>} */}
         <div className={`flex justify-center items-center w-full h-screen bg-black text-white`}>
           <button className='mb-5 absolute top-2 left-2' onClick={() => dispatch(setChoice1('default'))}>
             Quit
@@ -325,6 +362,7 @@ function HomePage() {
             </div>
           )}
         </div>
+        </>
       ) : choice1 === 'finished' ? (
         <div className='flex flex-col justify-center items-center w-full h-screen bg-black text-cyan-300'>
           <h1 className='text-3xl mb-4'>Finished</h1>
@@ -367,6 +405,7 @@ function HomePage() {
               <option className='text-black font-bold' value="computers">Computers/Tech</option>
               <option className='text-black font-bold' value="music">Music</option>
               <option className='text-black font-bold' value="Vehicles">Vehicles</option>
+              <option className='text-black font-bold' value="Programing">Programing</option>
             </select>
 
             <button className='mb-4 mt-5 border-2' onClick={() => {
