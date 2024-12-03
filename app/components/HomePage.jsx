@@ -6,6 +6,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import Image from 'next/image'
 import quizData from '../localData/quzQandA'
 
+
 import { 
   setChoice1,
   setQuestions,
@@ -126,25 +127,7 @@ function HomePage() {
   };
 
 
-  // const fetchQuestions = async () => {
-  //   try {
-  //     setLoading(true)
-  //     const response = await axios.get(api)
-  //     const decodedQuestions = response.data.results.map(q => ({
-  //       ...q,
-  //       question: decodeHTMLEntities(q.question),
-  //       correct_answer: decodeHTMLEntities(q.correct_answer),
-  //       incorrect_answers: q.incorrect_answers.map(decodeHTMLEntities)
-  //     }))
-      
-  //     dispatch(setQuestions(decodedQuestions));
-  //     setLoading(false)
-  //   } catch (error) {
-  //     console.error('Error fetching questions:', error)
-  //     toast.error('Connection Time Out!!! Try Again')
-      
-  //   }
-  // }
+  
 
 
 //fetching questions-----------------
@@ -183,13 +166,7 @@ const fetchQuestions = async () => {
     return textArea.value
   }
 
-  // const handleAnswerClick = (selectedAnswer) => {
-  //   if (selectedAnswer === currentQuestion.correct_answer) {
-  //     dispatch(setScore(score + 1));
-  //   }
-  //   moveToNextQuestion()
-  // }
-
+ 
 
 
   //answer clicking logics
@@ -329,7 +306,7 @@ const fetchQuestions = async () => {
         </div>
       ) : choice1 === 'all' ? (
         <>
-        {/* {selectedCategory == 'Programing' ? <><>:<></>} */}
+        
         <div className={`flex justify-center items-center w-full h-screen bg-black text-white`}>
           <button className='mb-5 absolute top-2 left-2' onClick={() => dispatch(setChoice1('default'))}>
             Quit
@@ -347,9 +324,7 @@ const fetchQuestions = async () => {
             <p className={`${isFrozen ? 'text-emerald-300 font-extrabold font-mono' : ''} text-xl mb-2 ${timeLeft<10 ? 'animate-ping text-red-600' : '' }  mt-5`}>{timeLeft}</p>
           </div>
 
-          {/* {mysteryBoxAvailable && (
-              <button onClick={handleMysteryBox}>Open Mystery Box</button>
-            )} */}
+          
 
           <div className='absolute flex bottom-2'>
             {currentQuestion && currentQuestion.type == 'boolean' ?
@@ -384,26 +359,14 @@ const fetchQuestions = async () => {
                 <h1 className={`${timeLeft < 7 ? ' ' : ' '} relative -top-10 break-all text-center ${theme == 'amber' ? 'bg-amber-500' : theme == 'violet' ? 'bg-violet-600' : theme == 'red' ? 'bg-red-600' : 'bg-emerald-700 ' } rounded-sm p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-50 font-bold' }`}>
                   {currentQuestion.question}
                 </h1>
-                {/* <div className='mt-4'>
-                  <div className='flex w-fit flex-col  items-center align-baseline space-y-5'>
-                    <p className={`p-1 cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold ${removedOptions.includes(currentQuestion.options[0]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[0])}>
-                      {currentQuestion.options[0]}
-                    </p>
-                    <p className={`p-1 cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold ${removedOptions.includes(currentQuestion.options[1]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[1])}>
-                      {currentQuestion.options[1]}
-                    </p>
-                  
-                    <p className={`${currentQuestion && currentQuestion.type == "boolean" ?" " :' p-1' } cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold  ${removedOptions.includes(currentQuestion.options[2]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[2])}>{currentQuestion.options[2]}</p>
-                    <p className={`${currentQuestion && currentQuestion.type == "boolean" ?" " :' p-1' } cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold  ${removedOptions.includes(currentQuestion.options[3]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[3])}>{currentQuestion.options[3]}</p>
-                  </div>
-                </div> */}
+               
 
                 <div className='mt-4'>
                   <div className='flex w-fit flex-col items-center align-baseline space-y-5'>
                       {currentQuestion.options.map((option, index) => (
                           <p 
                               key={index}
-                              className={`p-1 cursor-pointer rounded-md text-white-900 border-2 font-mono font-bold 
+                              className={`p-1 cursor-pointer rounded-md text-zinc-200 border-2 border-zinc-300 font-mono font-bold 
                                   ${removedOptions.includes(option) ? 'line-through opacity-50' : ''} 
                                   ${selectedAnswer === option && isCorrect ? 'bg-green-500' : ''} 
                                   ${selectedAnswer === option && !isCorrect ? 'bg-red-500' : ''} 
@@ -445,11 +408,9 @@ const fetchQuestions = async () => {
           <Image src="/QUZlogo.png" alt="" width={200} height={200} />
 
           <p className='md:text-2xl text-xl'>Welcome to Q<span className='font-bold font-serif text-red-600 '>U</span>Z</p>
-          {/* <p className='mt-4'>Select Your Preference</p> */}
+          
           <div className='mt-4 flex flex-col '>
-            {/* <button className='mb-4' onClick={() => setChoice1('selected')}>
-              Programing / Coding
-            </button> */}
+            
 
             <label htmlFor="category">Choose a category:</label>
             <select
