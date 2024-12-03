@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useDispatch,useSelector } from 'react-redux'
 import Image from 'next/image'
 import quizData from '../localData/quzQandA'
-// import DataProvider from '../store/dataProvider'
+
 import { 
   setChoice1,
   setQuestions,
@@ -29,6 +29,9 @@ function HomePage() {
   const [api,setApi] = useState('https://opentdb.com/api.php?amount=25')
   const [loading ,setLoading] = useState(false)
   const [theme,setTheme] = useState('default')
+
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [isCorrect, setIsCorrect] = useState(false);
 
 
    
@@ -76,7 +79,7 @@ function HomePage() {
   } = useSelector((state) => state.quiz);
 
   const memoizedQuestions = useMemo(() => questions, [questions])
-console.log(questions,'qstiong,,,,,,,,,,,,,,');
+// console.log(questions,'qstiong,,,,,,,,,,,,,,');
 
   const shuffleArray = useCallback((array) => {
     const shuffled = [...array]
@@ -116,6 +119,13 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
   }, [timeLeft, choice1, isFrozen]) 
   
 
+  //custom datas 40 question only-------
+  const getRandomQuestions = (questions, num) => {
+      const shuffledQuestions = shuffleArray(questions);
+      return shuffledQuestions.slice(0, num);
+  };
+
+
   // const fetchQuestions = async () => {
   //   try {
   //     setLoading(true)
@@ -137,31 +147,33 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
   // }
 
 
-
-  const fetchQuestions = async () => {
-    try {
-        setLoading(true);
-        if (selectedCategory === 'Programing') {    
-            const shuffledQuizData = shuffleArray(quizData);
-            dispatch(setQuestions(shuffledQuizData));
-        } else {
-            
-            const response = await axios.get(api);
-            const decodedQuestions = response.data.results.map(q => ({
-                ...q,
-                question: decodeHTMLEntities(q.question),
-                correct_answer: decodeHTMLEntities(q.correct_answer),
-                incorrect_answers: q.incorrect_answers.map(decodeHTMLEntities)
-            }));
-            dispatch(setQuestions(decodedQuestions));
-        }
-        
-        setLoading(false);
-    } catch (error) {
-        console.error('Error fetching questions:', error);
-        toast.error('Connection Time Out!!! Try Again');
-        setLoading(false);
-    }
+//fetching questions-----------------
+const fetchQuestions = async () => {
+  try {
+      setLoading(true);
+      
+      if (selectedCategory === 'Programing') {
+          
+          const randomQuestions = getRandomQuestions(quizData, 40);
+          dispatch(setQuestions(randomQuestions));
+      } else {
+          
+          const response = await axios.get(api);
+          const decodedQuestions = response.data.results.map(q => ({
+              ...q,
+              question: decodeHTMLEntities(q.question),
+              correct_answer: decodeHTMLEntities(q.correct_answer),
+              incorrect_answers: q.incorrect_answers.map(decodeHTMLEntities)
+          }));
+          dispatch(setQuestions(decodedQuestions));
+      }
+      
+      setLoading(false);
+  } catch (error) {
+      console.error('Error fetching questions:', error);
+      toast.error('Connection Time Out!!! Try Again');
+      setLoading(false);
+  }
 };
 
 
@@ -171,12 +183,36 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
     return textArea.value
   }
 
+  // const handleAnswerClick = (selectedAnswer) => {
+  //   if (selectedAnswer === currentQuestion.correct_answer) {
+  //     dispatch(setScore(score + 1));
+  //   }
+  //   moveToNextQuestion()
+  // }
+
+
+
+  //answer clicking logics
   const handleAnswerClick = (selectedAnswer) => {
-    if (selectedAnswer === currentQuestion.correct_answer) {
-      dispatch(setScore(score + 1));
-    }
-    moveToNextQuestion()
-  }
+      setSelectedAnswer(selectedAnswer);
+      const isAnswerCorrect = selectedAnswer === currentQuestion.correct_answer;
+      setIsCorrect(isAnswerCorrect);
+      
+      if (isAnswerCorrect) {
+          dispatch(setScore(score + 1));
+      }
+      
+      // showing correct or wrong answer effect
+      setTimeout(() => {
+          moveToNextQuestion();
+          setSelectedAnswer(null);
+          setIsCorrect(false);
+      }, 1000);
+  };
+
+
+
+
 
   const moveToNextQuestion = () => {
     const nextIndex = currentQuestionIndex + 1;
@@ -192,9 +228,9 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
 
 
 
+//featuress.......................................
 
-  //featuress.......................................
-
+  //freez
   const handleFreez = () => {
     if (freezCount > 0) { 
       dispatch(setIsFrozen(true)); 
@@ -208,6 +244,8 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
     }
   };
   
+
+  //2 removes
   const handleRemoveOpts = () => {
     if (removeOptsCount > 0 && currentQuestion) {
       const incorrectAnswers = currentQuestion.options.filter(
@@ -218,6 +256,8 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
       setRemoveOptsCount(removeOptsCount - 1); 
     }
   };
+
+
   
   useEffect(() => {
     if ([5, 8,11, 14,17, 20, 23].includes(score)) {
@@ -226,6 +266,9 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
     }
   }, [score]);
 
+
+
+  //gift box
   const handleMysteryBox = () => {
     const random = Math.random();
     if (random <= 0.4) {
@@ -262,7 +305,7 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
   
 
   if (loading) {
-    return<div className='flex justify-center items-center w-full h-screen'>
+    return<div className='flex justify-center bg-black items-center w-full h-screen'>
       <Toaster
         position="top-center"
         reverseOrder={false}
@@ -338,14 +381,11 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
             <div className='relative flex justify-center items-center md:w-[720px] md:h-[500px] w-72 h-64 '>
              
               <div className={` flex flex-col items-center justify-center `}>
-                <h1 className={`${timeLeft < 7 ? ' ' : ' '} relative -top-10 break-all text-center ${theme == 'amber' ? 'bg-amber-500' : theme == 'violet' ? 'bg-violet-600' : theme == 'red' ? 'bg-red-600' : 'bg-emerald-700 ' } rounded-md p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-200 font-bold' }`}>
+                <h1 className={`${timeLeft < 7 ? ' ' : ' '} relative -top-10 break-all text-center ${theme == 'amber' ? 'bg-amber-500' : theme == 'violet' ? 'bg-violet-600' : theme == 'red' ? 'bg-red-600' : 'bg-emerald-700 ' } rounded-sm p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-50 font-bold' }`}>
                   {currentQuestion.question}
                 </h1>
-                <div className='mt-4'>
+                {/* <div className='mt-4'>
                   <div className='flex w-fit flex-col  items-center align-baseline space-y-5'>
-                    {/* <p className='p-1  cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold' onClick={() => handleAnswerClick(currentQuestion.options[0])}>{currentQuestion.options[0]}</p> */}
-                    {/* <p className='p-1  cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold' onClick={() => handleAnswerClick(currentQuestion.options[1])}>{currentQuestion.options[1]}</p> */}
-                    
                     <p className={`p-1 cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold ${removedOptions.includes(currentQuestion.options[0]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[0])}>
                       {currentQuestion.options[0]}
                     </p>
@@ -356,8 +396,28 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
                     <p className={`${currentQuestion && currentQuestion.type == "boolean" ?" " :' p-1' } cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold  ${removedOptions.includes(currentQuestion.options[2]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[2])}>{currentQuestion.options[2]}</p>
                     <p className={`${currentQuestion && currentQuestion.type == "boolean" ?" " :' p-1' } cursor-pointer bg-slate-200 rounded-md text-zinc-900 font-mono font-bold  ${removedOptions.includes(currentQuestion.options[3]) ? 'line-through opacity-50' : ''}`} onClick={() => handleAnswerClick(currentQuestion.options[3])}>{currentQuestion.options[3]}</p>
                   </div>
-                </div>
-                
+                </div> */}
+
+                <div className='mt-4'>
+                  <div className='flex w-fit flex-col items-center align-baseline space-y-5'>
+                      {currentQuestion.options.map((option, index) => (
+                          <p 
+                              key={index}
+                              className={`p-1 cursor-pointer rounded-md text-white-900 border-2 font-mono font-bold 
+                                  ${removedOptions.includes(option) ? 'line-through opacity-50' : ''} 
+                                  ${selectedAnswer === option && isCorrect ? 'bg-green-500' : ''} 
+                                  ${selectedAnswer === option && !isCorrect ? 'bg-red-500' : ''} 
+                                  ${option === currentQuestion.correct_answer && !isCorrect && selectedAnswer !== null ? 'bg-green-500' : ''}`}
+                              onClick={() => handleAnswerClick(option)}
+                          >
+                              {option}
+                          </p>
+                      ))}
+                  </div>
+              </div>
+
+
+
               </div>
             </div>
           )}
@@ -393,20 +453,21 @@ console.log(questions,'qstiong,,,,,,,,,,,,,,');
 
             <label htmlFor="category">Choose a category:</label>
             <select
-                className='text-white font-bold bg-transparent mt-4'
+                className="block w-full px-4 py-2 mt-4 text-white bg-black border border-gray-700 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 id="category"
                 name="category"
                 value={selectedCategory}
                 onChange={handleCategoryChange}
-              >
-              <option className='text-black font-bold' value="All">All</option>
-              <option className='text-black font-bold' value="movies">Movies</option>
-              <option className='text-black font-bold' value="games">Games</option>
-              <option className='text-black font-bold' value="computers">Computers/Tech</option>
-              <option className='text-black font-bold' value="music">Music</option>
-              <option className='text-black font-bold' value="Vehicles">Vehicles</option>
-              <option className='text-black font-bold' value="Programing">Programing</option>
+            >
+                <option className="text-gray-500 font-semibold" value="All">All</option>
+                <option className="text-gray-400 font-semibold" value="movies">Movies</option>
+                <option className="text-gray-500 font-semibold" value="games">Games</option>
+                <option className="text-gray-500 font-semibold" value="computers">Computers/Tech</option>
+                <option className="text-gray-500 font-semibold" value="music">Music</option>
+                <option className="text-gray-500 font-semibold" value="Vehicles">Vehicles</option>
+                <option className="text-gray-500 font-semibold" value="Programing">Programming</option>
             </select>
+
 
             <button className='mb-4 mt-5 border-2' onClick={() => {
               dispatch(setChoice1('all'))

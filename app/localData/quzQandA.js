@@ -561,6 +561,450 @@ const quizData = [{
         "To create new models"
     ],
     "type": "multiple"
-}
+},
+
+
+
+{
+    "category": "JavaScript",
+    "question": "What is the time complexity of accessing an element in an array?",
+    "correct_answer": "O(1)",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "O(n)",
+        "O(log n)",
+        "O(n^2)"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "Which method can be used to convert a JSON string into a JavaScript object?",
+    "correct_answer": "JSON.parse()",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "JSON.stringify()",
+        "JSON.object()",
+        "parse.JSON()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "React",
+    "question": "What is the purpose of the 'useReducer' hook in React?",
+    "correct_answer": "'To manage complex state logic'",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "'To replace useState'",
+        "'To handle side effects'",
+        "'To optimize performance'"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "React",
+    "question": "'What does the 'key' prop do in React lists?'",
+    "correct_answer": "'Helps React identify which items have changed'",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "'Defines the style of the list item'",
+        "'Sets the order of items'",
+        "'Creates a unique identifier for the component'"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "HTML",
+    "question": "'What does the <meta> tag in HTML do?'",
+    "correct_answer": "'Provides metadata about the HTML document'",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "'Defines the structure of the document'",
+        "'Links external CSS files'",
+        "'Adds JavaScript functionality'"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "CSS",
+    "question": "'What does the z-index property do in CSS?'",
+    "correct_answer": "'Controls the vertical stacking order of elements'",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "'Sets the opacity of an element'",
+        "'Defines the position of an element'",
+        "'Specifies the size of an element'"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Next.js",
+    "question": "'What is Static Site Generation (SSG) in Next.js?'",
+    "correct_answer": "'Pre-rendering pages at build time'",
+    "difficulty":  "hard", 
+    "incorrect_answers":[
+        "'Rendering pages on each request'", 
+        "'Dynamically generating pages with client-side rendering'", 
+        "'Using server-side rendering for every page'" 
+    ], 
+    "type":"multiple" 
+},
+{
+   "category":"Next.js", 
+   "question":"Which function is used to create API routes in Next.js?", 
+   "correct_answer":"export default function handler(req, res) {}", 
+   "difficulty":"medium", 
+   "incorrect_answers":[ 
+      "createApiRoute()", 
+      "apiHandler()", 
+      "nextApiRoute()" 
+   ], 
+   "type":"multiple" 
+},
+{
+   "category":"Tailwind CSS", 
+   "question":"How do you apply a hover effect using Tailwind CSS?", 
+   "correct_answer":"'hover:bg-blue-500'", 
+   "difficulty":"medium", 
+   "incorrect_answers":[ 
+      "'bg-hover-blue-500'", 
+      "'hover:color-blue-500'", 
+      "'bg-blue-500:hover'" 
+   ], 
+   "type":"multiple" 
+},
+{
+   "category":"GSAP", 
+   "question":"Which GSAP method is used to animate properties?", 
+   "correct_answer":"gsap.to()", 
+   "difficulty":"hard", 
+   "incorrect_answers":[ 
+      "gsap.animate()", 
+      "gsap.start()", 
+      "gsap.move()" 
+   ], 
+   "type":"multiple" 
+},
+{
+   "category":"Python", 
+   "question":"What is a Python decorator?", 
+   "correct_answer":"'A function that modifies another function'", 
+   "difficulty":"hard", 
+   "incorrect_answers":[ 
+      "'A type of class method'", 
+      "'A built-in Python function'", 
+      "'A way to create anonymous functions'" 
+   ], 
+   "type":"multiple" 
+},
+{
+   "category":"Django",  
+    "question":"What command is used to create a new Django app?",  
+    "correct_answer":"python manage.py startapp <app_name>",  
+    "difficulty":"medium",  
+    "incorrect_answers":[  
+        "django-admin createapp <app_name>",  
+        "python create_app.py <app_name>",  
+        "Django startapp <app_name>"  
+    ],  
+    "type":"multiple"  
+},  
+{
+      "category":"DRF",  
+      "question":"What does DRF stand for?",  
+      "correct_answer":"Django Rest Framework",  
+      "difficulty":"easy",  
+      "incorrect_answers":[  
+      '"Django Resource Framework"',  
+      '"Django Restful Framework"',  
+      '"Dynamic Rest Framework"'  
+     ],  
+      "type":"multiple"
+},
+{
+     "category":"PostgreSQL",  
+     "question":"'Which SQL command is used to remove rows from a table?'",  
+     "correct_answer":"'DELETE FROM'",  
+     "difficulty":"'medium'",  
+     "incorrect_answers":[  
+         '"REMOVE FROM"',  
+         '"DROP ROWS FROM"',  
+         '"TRUNCATE TABLE"'  
+    ],  
+   "type":"'multiple'"   
+},   
+{
+ "category":"'Redux'",   
+ "question":"'What does Redux use to manage state updates?'",   
+ "correct_answer":"'Reducers'",   
+ "difficulty":"'hard'",   
+ "incorrect_answers":[   
+      '"Actions"',   
+      '"Components"',   
+      '"Middleware"'   
+    ],   
+    "type":"'multiple'"   
+},   
+{
+"category":"'Redux'",    
+"question":"'Which method is used to create a Redux store?'",    
+"correct_answer":"'createStore()'",    
+"difficulty":"'medium'",    
+"incorrect_answers":[    
+     '"initStore()"',    
+     '"configureStore()"',    
+     '"makeStore()"'    
+  ],    
+"type":"'multiple'"    
+},   
+{
+"category":"'Redux'",    
+"question":"'What does 'mapStateToProps' do in Redux?'",    
+"correct_answer":"'Maps state from Redux store to component props'",    
+"difficulty":"'medium'",    
+"incorrect_answers":[    
+     '"Maps actions to component props"',    
+     '"Connects components to Redux store"',    
+    '"Creates new state slices"'    
+  ],    
+"type":"'multiple'"    
+},   
+{
+"category":"'Redux'",    
+"question":"'What middleware is commonly used with Redux for handling asynchronous actions?'",    
+"correct_answer":"'redux-thunk'",    
+"difficulty":"'medium'",    
+"incorrect_answers":[    
+     '"redux-saga"',    
+     '"redux-logger"',    
+    '"redux-promise"'    
+  ],    
+"type":"'multiple'"    
+},
+
+
+
+{
+    "category": "JavaScript",
+    "question": "What is the output of 'typeof null' in JavaScript?",
+    "correct_answer": "'object'",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "'null'",
+        "'undefined'",
+        "'boolean'"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "Which of the following is a closure in JavaScript?",
+    "correct_answer": "'A function that retains access to its lexical scope'",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "'A function that has no parameters'",
+        "'A function that can only be called once'",
+        "'A function defined inside another function'"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "React",
+    "question": "'What is the purpose of React's Context API?'",
+    "correct_answer": "'To manage global state in a React application'",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "'To optimize performance of components'",
+        "'To handle side effects in components'",
+        "'To replace Redux entirely'"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "React",
+    "question": "'What does the 'useEffect' hook do?'",
+    "correct_answer": "'Performs side effects in function components'",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "'Manages local component state'",
+        "'Optimizes rendering performance'",
+        "'Handles routing in React applications'"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "HTML",
+    "question": "'Which HTML element is used to define an internal style sheet?'",
+    "correct_answer": "<style>",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "<css>",
+        "<script>",
+        "<link>"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "CSS",
+    "question": "'What does the 'flex-direction' property do in CSS Flexbox?'",
+    "correct_answer": "'Defines the direction flex items are placed in the flex container'",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "'Aligns flex items along the main axis'",
+        "'Sets the size of flex items'",
+        "'Changes the order of flex items'"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Next.js",
+    "question": "'How can you implement dynamic routing in Next.js?'",
+    "correct_answer": "'By creating files with brackets in the pages directory'",
+    "difficulty":  "hard", 
+    "incorrect_answers":[
+        "'By using React Router'", 
+        "'By defining routes in a configuration file'", 
+        "'By using a third-party library'" 
+    ], 
+    "type":"multiple" 
+},
+{
+   "category":"Next.js", 
+   "question":"What is the purpose of 'getStaticProps' in Next.js?", 
+   "correct_answer":"Fetches data at build time for static generation", 
+   "difficulty":"hard", 
+   "incorrect_answers":[ 
+      "Fetches data on every request", 
+      "Fetches data on the client-side", 
+      "Fetches data only during development" 
+   ], 
+   "type":"multiple" 
+},
+{
+   "category":"Tailwind CSS", 
+   "question":"How do you apply responsive styles with Tailwind CSS?", 
+   "correct_answer":"'By prefixing classes with breakpoints (e.g., md:bg-red-500)'", 
+   "difficulty":"hard", 
+   "incorrect_answers":[ 
+      "'Using media queries directly'", 
+      "'By using inline styles'", 
+      "'By defining custom breakpoints'" 
+   ], 
+   "type":"multiple" 
+},
+{
+   "category":"GSAP", 
+   "question":"Which GSAP method allows you to create a timeline for animations?", 
+   "correct_answer":"gsap.timeline()", 
+   "difficulty":"hard", 
+   "incorrect_answers":[ 
+      "gsap.sequence()", 
+      "gsap.parallel()", 
+      "gsap.animate()" 
+   ], 
+   "type":"multiple" 
+},
+{
+   "category":"Python", 
+   "question":"What is the difference between '==' and 'is' in Python?", 
+   "correct_answer":"'==' checks value equality; 'is' checks identity'", 
+   "difficulty":"hard", 
+   "incorrect_answers":[ 
+      "'Both are identical'", 
+      "'is checks value equality; == checks identity'", 
+      "'== is used for strings only'" 
+   ], 
+   "type":"multiple" 
+},
+{
+   "category":"Django",  
+    "question":"How do you create a model in Django?",  
+    "correct_answer":"By subclassing django.db.models.Model",  
+   "difficulty":"hard",  
+   "incorrect_answers":[  
+       "'By creating a new class without inheritance'",  
+       "'By using Django's built-in functions'",  
+       "'By defining a schema in settings.py'"  
+   ],  
+   "type":"multiple"  
+},  
+{
+     "category":"DRF",  
+     "question":"'What does 'serializer.is_valid()' check in Django Rest Framework?'",  
+     "correct_answer":"'Validates incoming data against serializer fields'",  
+     "difficulty":"'hard'",  
+     "incorrect_answers":[  
+         '"Checks if the serializer has been initialized"',  
+         '"Validates against model fields"',  
+         '"Checks if required fields are present"'  
+       ],  
+     "type":"'multiple'"   
+},   
+{
+ "category":"'PostgreSQL'",   
+"question":"'What is the purpose of an index in PostgreSQL?'",   
+"correct_answer":"'To speed up query performance'",   
+"difficulty":"'hard'",   
+"incorrect_answers":[   
+     '"To ensure data integrity"',   
+     '"To store large objects"',   
+     '"To manage user permissions"'   
+   ],   
+"type":"'multiple'"   
+},   
+{
+"category":"'Redux'",    
+"question":"'What is the purpose of middleware in Redux?'",    
+"correct_answer":"'To enhance store capabilities with additional functionality'",    
+"difficulty":"'hard'",    
+"incorrect_answers":[    
+     '"To manage component states"',    
+     '"To replace reducers"',    
+     '"To connect components to store"'    
+  ],    
+"type":"'multiple'"    
+},   
+{
+"category":"'Redux'",    
+"question":"'What is an action creator in Redux?'",    
+"correct_answer":"'A function that returns an action object'",    
+"difficulty":"'medium'",    
+"incorrect_answers":[    
+     '"A reducer function"',    
+     '"A middleware function"',    
+     '"A component that connects to store"'    
+  ],    
+"type":"'multiple'"    
+},   
+{
+"category":"'Redux'",    
+"question":"'What does 'combineReducers' do in Redux?'",    
+"correct_answer":"'Combines multiple reducers into one reducer function'",    
+"difficulty":"'medium'",    
+"incorrect_answers":[    
+     '"Creates a new action type"',    
+     '"Merges state from different stores"',    
+     '"Connects components to multiple stores"'    
+  ],    
+"type":"'multiple'"    
+},   
+{
+"category":"'Redux'",    
+"question":"'How do you access state from a Redux store inside a component?'",    
+"correct_answer":"'Using useSelector hook or mapStateToProps function'",    
+"difficulty":"'medium'",    
+"incorrect_answers":[    
+     '"Using useDispatch hook"',    
+     '"Directly accessing store object"',    
+     '"Using connect() without mapStateToProps"'    
+  ],    
+"type":"multiple'"     
+} 
+
+
+
 ]
 export default quizData;
+
+
+
