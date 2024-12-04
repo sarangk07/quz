@@ -334,18 +334,7 @@ const quizData = [{
     ],
     "type": "multiple"
 },
-{
-    "category": "JavaScript",
-    "question": "Which method converts a JSON string into a JavaScript object?",
-    "correct_answer": "JSON.parse()",
-    "difficulty": "easy",
-    "incorrect_answers": [
-        "JSON.stringify()",
-        "Object.fromJSON()",
-        "Object.parseJSON()"
-    ],
-    "type": "multiple"
-},
+
 {
     "category": "Python",
     "question": "Which keyword is used to define a function in Python?",
@@ -999,7 +988,328 @@ const quizData = [{
      '"Using connect() without mapStateToProps"'    
   ],    
 "type":"multiple'"     
-} 
+},
+
+
+
+
+
+{
+    "category": "Python - Dictionary",
+    "question": "In Python, which method is used to retrieve all keys from a dictionary?",
+    "correct_answer": "keys()",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "get()",
+        "items()",
+        "values()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Array",
+    "question": "In JavaScript, what does the 'reduce()' method do?",
+    "correct_answer": "Reduces an array to a single value by executing a reducer function",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Filters elements of an array",
+        "Executes a function on each array element",
+        "Creates a new array with results of a function on every element"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - String",
+    "question": "In Python, how can you check if a string starts with a specific prefix?",
+    "correct_answer": "startswith()",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "start()",
+        "contains()",
+        "isPrefix()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Set",
+    "question": "In JavaScript, which method checks if a value exists in a Set?",
+    "correct_answer": "has()",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "exists()",
+        "find()",
+        "contains()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - Tuple",
+    "question": "In Python, what happens if you try to modify a value in a tuple?",
+    "correct_answer": "An error is raised because tuples are immutable",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "The value is modified successfully",
+        "A new tuple is created with the modified value",
+        "Python converts the tuple into a list temporarily"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - String",
+    "question": "In JavaScript, which method is used to find the index of the first occurrence of a substring in a string?",
+    "correct_answer": "indexOf()",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "find()",
+        "search()",
+        "substring()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - List",
+    "question": "In Python, how do you remove an item at a specific index in a list?",
+    "correct_answer": "Use the del statement",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use the remove() method",
+        "Use the pop() method with no arguments",
+        "Use the discard() method"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Object",
+    "question": "In JavaScript, how can you iterate over the keys of an object?",
+    "correct_answer": "Use Object.keys(obj) and a for loop",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use obj.keys()",
+        "Use Object.entries(obj)",
+        "Use Object.values(obj)"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - Set",
+    "question": "In Python, which method is used to add an element to a set?",
+    "correct_answer": "add()",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "append()",
+        "push()",
+        "insert()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Map",
+    "question": "In JavaScript, how do you check if a key exists in a Map?",
+    "correct_answer": "has()",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "contains()",
+        "find()",
+        "keyExists()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - String",
+    "question": "In Python, how do you reverse a string?",
+    "correct_answer": "Using slicing with [::-1]",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Using the reverse() method",
+        "Using reversed() directly",
+        "Using a for loop with append"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Array",
+    "question": "In JavaScript, what does the 'flat()' method do?",
+    "correct_answer": "Flattens nested arrays into a single array",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Removes duplicate elements",
+        "Filters elements based on a condition",
+        "Sorts the array in ascending order"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - Dictionary",
+    "question": "In Python, how can you merge two dictionaries?",
+    "correct_answer": "Use the ** operator or the update() method",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use the + operator",
+        "Use the merge() method",
+        "Use the extend() method"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - String",
+    "question": "In JavaScript, what does the 'slice()' method do for strings?",
+    "correct_answer": "Extracts a section of a string without modifying the original",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Splits a string into an array of substrings",
+        "Removes a section of a string",
+        "Replaces part of the string with a new value"
+    ],
+    "type": "multiple"
+},
+
+
+
+
+{
+    "category": "Python - List",
+    "question": "In Python, given the list `[1, 2, [3, 4], 5]`, how can you create a flat list `[1, 2, 3, 4, 5]`?",
+    "correct_answer": "Use list comprehension: `[item for sublist in lst for item in (sublist if isinstance(sublist, list) else [sublist])]`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use lst.flatten()",
+        "Use the sum(lst, [])",
+        "Use map(lambda x: x, lst)"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Array",
+    "question": "In JavaScript, how can you find the longest string in the array `['cat', 'elephant', 'dinosaur']`?",
+    "correct_answer": "Use `arr.reduce((a, b) => a.length > b.length ? a : b)`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `Math.max(...arr.map(str => str.length))`",
+        "Use `arr.sort((a, b) => b.length - a.length)[0]`",
+        "Use `arr.filter(str => str.length > 5)[0]`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - Dictionary",
+    "question": "In Python, how can you create a dictionary by zipping two lists `['a', 'b']` and `[1, 2]`?",
+    "correct_answer": "Use `dict(zip(['a', 'b'], [1, 2]))`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `{['a', 'b']: [1, 2]}`",
+        "Use `zip(['a', 'b'], [1, 2])`",
+        "Use `dict([['a', 'b'], [1, 2]])`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - String",
+    "question": "In JavaScript, how do you reverse a string `hello`?",
+    "correct_answer": "Use `str.split('').reverse().join('')`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `str.reverse()`",
+        "Use `str.slice('').reverse()`",
+        "Use `Array.from(str).join('')`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - Set",
+    "question": "In Python, given two sets `{1, 2, 3}` and `{3, 4, 5}`, how can you find the union?",
+    "correct_answer": "Use `set1 | set2`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `set1 + set2`",
+        "Use `set1.union(set2)` without parentheses",
+        "Use `set1 || set2`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Object",
+    "question": "In JavaScript, how can you shallow clone an object `{a: 1, b: 2}`?",
+    "correct_answer": "Use `Object.assign({}, obj)`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `{...obj}` (not supported in all environments)",
+        "Use `JSON.parse(JSON.stringify(obj))`",
+        "Use `obj.clone()`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - Tuple",
+    "question": "In Python, how do you unpack a tuple `(1, 2, 3)` into variables a, b, and c?",
+    "correct_answer": "Use `a, b, c = (1, 2, 3)`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `a, b, c == (1, 2, 3)`",
+        "Use `a, b, c <- (1, 2, 3)`",
+        "Use `a = b = c = (1, 2, 3)`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Array",
+    "question": "In JavaScript, how can you remove duplicates from an array `[1, 2, 2, 3]`?",
+    "correct_answer": "Use `Array.from(new Set(arr))`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `arr.filter((val, idx) => arr.indexOf(val) === idx)`",
+        "Use `arr.reduce((unique, item) => unique.includes(item) ? unique : [...unique, item], [])`",
+        "Use `arr.splice(duplicates)`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - String",
+    "question": "In Python, how can you check if all characters in a string are alphanumeric?",
+    "correct_answer": "Use `str.isalnum()`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `str.alnum()`",
+        "Use `str.isalpha()`",
+        "Use `str.isdigit()`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Function",
+    "question": "In JavaScript, how can you call a function with an array of arguments `[1, 2, 3]`?",
+    "correct_answer": "Use `func.apply(null, arr)`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `func.call(arr)`",
+        "Use `func(arr)`",
+        "Use `func.apply(arr)`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python - List",
+    "question": "In Python, how can you sort a list of tuples `[(1, 'b'), (3, 'a'), (2, 'c')]` by the second value in each tuple?",
+    "correct_answer": "Use `sorted(lst, key=lambda x: x[1])`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `lst.sort(lambda x: x[1])`",
+        "Use `sorted(lst, key=x[1])`",
+        "Use `lst.sort(key=lambda x: x[1])`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript - Set",
+    "question": "In JavaScript, how do you find the intersection of two Sets `a` and `b`?",
+    "correct_answer": "Use `new Set([...a].filter(x => b.has(x)))`",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Use `a.filter(x => b.has(x))`",
+        "Use `a.intersect(b)`",
+        "Use `Set.intersection(a, b)`"
+    ],
+    "type": "multiple"
+}
 
 
 

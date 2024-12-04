@@ -311,17 +311,21 @@ const fetchQuestions = async () => {
           <button className='mb-5 absolute top-2 left-2' onClick={() => dispatch(setChoice1('default'))}>
             Quit
           </button>
-          <div className='mb-4 flex absolute top-11 left-2'>
+          <div className='mb-4 flex flex-col absolute justify-start items-start top-11 left-2'>
+            <div className='flex'>
             <p onClick={()=>setTheme('amber')} className='mr-4 bg-amber-500 w-5 h-5'/>
             <p onClick={()=>setTheme('red')} className='mr-4 w-5 h-5 bg-red-600'/>
             <p onClick={()=>setTheme('violet')} className='mr-4 w-5 h-5 bg-violet-600'/>
             <p onClick={()=>setTheme('default')} className='bg-emerald-500 w-5 h-5'/>
+            </div>
+            <div className='flex pl-2 items-start justify-start'>
+            <p className={`${isFrozen ? 'text-emerald-300 font-extrabold font-mono' : ''} text-2xl mb-2 ${timeLeft<10 ? 'animate-ping text-red-600' : '' }  mt-5`}>{timeLeft}</p>
+            </div>
           </div>
           <div className='absolute text-center top-1'>
             <p className='text-xs'>{selectedCategory}</p>
-            <p className='mt-4 '>Score: <span className={`${score>10 ? 'text-blue-600' : score>20 ? 'text-green-600' : ''}`}>{score}</span></p>
-            <p>Question {currentQuestionIndex + 1} of {questions.length}</p>
-            <p className={`${isFrozen ? 'text-emerald-300 font-extrabold font-mono' : ''} text-xl mb-2 ${timeLeft<10 ? 'animate-ping text-red-600' : '' }  mt-5`}>{timeLeft}</p>
+            <p className='mt-4 text-xs '>Score: <span className={`${score>10 ? 'text-blue-600' : score>20 ? 'text-green-600' : ''}`}>{score}</span></p>
+            <p className='text-sm'>Question {currentQuestionIndex + 1} of {questions.length}</p>
           </div>
 
           
@@ -357,12 +361,13 @@ const fetchQuestions = async () => {
              
               <div className={` flex flex-col items-center justify-center `}>
                 <h1 className={`${timeLeft < 7 ? ' ' : ' '} relative -top-10 break-all text-center ${theme == 'amber' ? 'bg-amber-500' : theme == 'violet' ? 'bg-violet-600' : theme == 'red' ? 'bg-red-600' : 'bg-emerald-700 ' } rounded-sm p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-50 font-bold' }`}>
-                  {currentQuestion.question}
+                <p className='mt-0 mb-3 relative border w-fit px-1 bg-transparent backdrop-blur-3xl text-xs '>{currentQuestion.difficulty ?? ''}</p>
+                {currentQuestion.question} 
+              
                 </h1>
-               
 
                 <div className='mt-4'>
-                  <div className='flex w-fit flex-col items-center align-baseline space-y-5'>
+                  <div className='flex  w-fit flex-col items-center align-baseline space-y-5'>
                       {currentQuestion.options.map((option, index) => (
                           <p 
                               key={index}
@@ -378,11 +383,10 @@ const fetchQuestions = async () => {
                       ))}
                   </div>
               </div>
-
-
-
               </div>
+
             </div>
+            
           )}
         </div>
         </>
