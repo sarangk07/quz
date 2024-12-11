@@ -33,18 +33,13 @@ function HomePage() {
 
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCorrect, setIsCorrect] = useState(false);
-
-
    
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value); 
   };
 
-
   useEffect(() => {
     let apiUrl;
-
-    
     switch (selectedCategory) {
       case 'movies':
         apiUrl = 'https://opentdb.com/api.php?amount=25&category=11';
@@ -62,6 +57,12 @@ function HomePage() {
         apiUrl = 'https://opentdb.com/api.php?amount=25&category=28'; 
         break;
       case 'Programing':
+        apiUrl = ''; 
+        break;
+      case 'JS':
+        apiUrl = ''; 
+        break;
+      case 'PY':
         apiUrl = ''; 
         break;
       default:
@@ -120,7 +121,7 @@ function HomePage() {
   }, [timeLeft, choice1, isFrozen]) 
   
 
-  //custom datas 40 question only-------
+  //custom datas 50 question only-------
   const getRandomQuestions = (questions, num) => {
       const shuffledQuestions = shuffleArray(questions);
       return shuffledQuestions.slice(0, num);
@@ -137,10 +138,20 @@ const fetchQuestions = async () => {
       
       if (selectedCategory === 'Programing') {
           
-          const randomQuestions = getRandomQuestions(quizData, 40);
+          const randomQuestions = getRandomQuestions(quizData, 50);
           dispatch(setQuestions(randomQuestions));
-      } else {
-          
+      }else if(selectedCategory === 'PY'){
+        let fljsdata = quizData.filter((x)=>x.category == 'Python');
+        // console.log('py datas filtered------',fljsdata)
+        const randomQuestions = getRandomQuestions(fljsdata, 40);
+        dispatch(setQuestions(randomQuestions));
+      }else if(selectedCategory === 'JS'){
+        let flpydata = quizData.filter((x)=>x.category == 'JavaScript');
+        // console.log('js datas filtered------',flpydata)
+        const randomQuestions = getRandomQuestions(flpydata, 40);
+        dispatch(setQuestions(randomQuestions));
+      }
+      else {  
           const response = await axios.get(api);
           const decodedQuestions = response.data.results.map(q => ({
               ...q,
@@ -150,11 +161,10 @@ const fetchQuestions = async () => {
           }));
           dispatch(setQuestions(decodedQuestions));
       }
-      
-      setLoading(false);
   } catch (error) {
       console.error('Error fetching questions:', error);
-      toast.error('Connection Time Out!!! Try Again');
+      toast.error('Connection Time Out!!! Try Again');   
+  } finally {
       setLoading(false);
   }
 };
@@ -313,10 +323,10 @@ const fetchQuestions = async () => {
           </button>
           <div className='mb-4 flex flex-col absolute justify-start items-start top-11 left-2'>
             <div className='flex'>
-            <p onClick={()=>setTheme('amber')} className='mr-4 bg-amber-500 w-5 h-5'/>
-            <p onClick={()=>setTheme('red')} className='mr-4 w-5 h-5 bg-red-600'/>
-            <p onClick={()=>setTheme('violet')} className='mr-4 w-5 h-5 bg-violet-600'/>
-            <p onClick={()=>setTheme('default')} className='bg-emerald-500 w-5 h-5'/>
+            <p onClick={()=>setTheme('amber')} className='mr-4 rotate-45 bg-amber-500 w-5 h-5'/>
+            <p onClick={()=>setTheme('red')} className='mr-4 w-5 h-5 rotate-45 bg-red-600'/>
+            <p onClick={()=>setTheme('violet')} className='mr-4 w-5 h-5 rotate-45 bg-violet-600'/>
+            <p onClick={()=>setTheme('default')} className='rotate-45 bg-emerald-500 w-5 h-5'/>
             </div>
             <div className='flex pl-2 items-start justify-start'>
             <p className={`${isFrozen ? 'text-emerald-300 font-extrabold font-mono' : ''} text-2xl mb-2 ${timeLeft<10 ? 'animate-ping text-red-600' : '' }  mt-5`}>{timeLeft}</p>
@@ -350,7 +360,7 @@ const fetchQuestions = async () => {
               onClick={handleFreez} 
               disabled={freezCount === 0} 
             >
-              <span className='font-mono text-xs'>Freeze</span>
+              <span className='font-mono text-xs'>Freeze[7s]</span>
               <Image src="/freeze.png" alt="freeze" width={45} height={45}/>
               <span className='text-xs'>({freezCount})</span>
             </button>
@@ -431,6 +441,8 @@ const fetchQuestions = async () => {
                 <option className="text-gray-500 font-semibold" value="music">Music</option>
                 <option className="text-gray-500 font-semibold" value="Vehicles">Vehicles</option>
                 <option className="text-gray-500 font-semibold" value="Programing">Programming</option>
+                <option className="text-gray-400 font-semibold" value="JS">JavaScript-only</option>
+                <option className="text-gray-400 font-semibold" value="PY">Python-only</option>
             </select>
 
 

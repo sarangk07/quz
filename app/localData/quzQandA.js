@@ -1,5 +1,5 @@
 const quizData = [{
-    "category": "Programing",
+    "category": "JavaScript",
     "question": "What is the output of 'typeof NaN'?",
     "correct_answer": "number",
     "difficulty": "medium",
@@ -11,7 +11,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "JavaScript",
     "question": "Which method is used to convert a JSON string into a JavaScript object?",
     "correct_answer": "JSON.parse()",
     "difficulty": "easy",
@@ -23,7 +23,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "JavaScript",
     "question": "What will be the output of 'console.log(0.1 + 0.2 === 0.3)'?",
     "correct_answer": "false",
     "difficulty": "medium",
@@ -35,7 +35,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "React",
     "question": "'useEffect' is used for what purpose in React?",
     "correct_answer": "'Side effects in functional components'",
     "difficulty": "medium",
@@ -47,7 +47,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "JavaScript",
     "question": "'What is JSX?'",
     "correct_answer": "'A syntax extension for JavaScript'",
     "difficulty": "easy",
@@ -59,7 +59,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "React",
     "question": "'What does the 'key' prop do in React?'",
     "correct_answer": "'Helps identify which items have changed'",
     "difficulty": "medium",
@@ -71,7 +71,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "HTML",
     "question": "'Which HTML element is used to define an unordered list?'",
     "correct_answer": "<ul>",
     "difficulty": "easy",
@@ -83,7 +83,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "HTML",
    "question":"What does the <meta> tag represent in HTML?", 
    "correct_answer":"Metadata about the HTML document", 
    "difficulty":"medium", 
@@ -95,7 +95,7 @@ const quizData = [{
    "type":"multiple" 
 },
 {
-   "category":"Programing", 
+   "category":"HTML", 
    "question":"Which attribute is used to specify an image's source?", 
    "correct_answer":"src", 
    "difficulty":"easy", 
@@ -107,7 +107,7 @@ const quizData = [{
    "type":"multiple" 
 },
 {
-   "category":"Programing", 
+   "category":"CSS", 
    "question":"What property is used to change the background color in CSS?", 
    "correct_answer":"background-color", 
    "difficulty":"easy", 
@@ -119,7 +119,7 @@ const quizData = [{
    "type":"multiple" 
 },
 {
-   "category":"Programing", 
+   "category":"CSS", 
    "question":"Which CSS property controls the text size?", 
    "correct_answer":"font-size", 
    "difficulty":"easy", 
@@ -131,7 +131,7 @@ const quizData = [{
    "type":"multiple" 
 },
 {
-   "category":"Programing", 
+   "category":"CSS", 
    "question":"What does 'flex-direction: column;' do in CSS Flexbox?", 
    "correct_answer":"Arranges items vertically", 
    "difficulty":"medium", 
@@ -143,7 +143,7 @@ const quizData = [{
    "type":"multiple"
 },
 {
-     "category":"Programing",  
+     "category":"Nextjs",  
      "question":"What file is used to define routes in Next.js?",  
      "correct_answer":"pages/index.js",  
      "difficulty":"easy",  
@@ -155,7 +155,7 @@ const quizData = [{
      "type":"multiple"
 },
 {
-     "category":"Programing",  
+     "category":"Nextjs",  
      "question":"'getStaticProps' is used for what purpose?",  
      "correct_answer":"'Fetching data at build time'",  
      "difficulty":"hard",  
@@ -167,7 +167,7 @@ const quizData = [{
      "type":"multiple"
 },
 {
-     "category":"Programing",  
+     "category":"Nextjs",  
      "question":"'What is a Static Site Generation (SSG)?'",  
      "correct_answer":"'Pre-rendering pages at build time'",  
      "difficulty":"medium",  
@@ -179,7 +179,7 @@ const quizData = [{
     "type":"multiple"
 },
 {
-    "category": "Programing",
+    "category": "HTML",
     "question": "What does the <meta> tag provide in an HTML document?",
     "correct_answer": "Metadata about the document",
     "difficulty": "easy",
@@ -191,7 +191,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "CSS",
     "question": "What does the 'z-index' property do in CSS?",
     "correct_answer": "Controls the stack order of elements",
     "difficulty": "medium",
@@ -203,7 +203,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "JavaScript",
     "question": "What is a closure in JavaScript?",
     "correct_answer": "A function that remembers its lexical scope even when executed outside of it",
     "difficulty": "hard",
@@ -215,7 +215,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "Python",
     "question": "Which data structure is used to implement a queue in Python?",
     "correct_answer": "Collections.deque",
     "difficulty": "medium",
@@ -227,7 +227,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "PostgreSQL",
     "question": "Which command is used to create a new database in PostgreSQL?",
     "correct_answer": "CREATE DATABASE",
     "difficulty": "easy",
@@ -239,7 +239,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "React",
     "question": "What does the 'useEffect' hook do in React?",
     "correct_answer": "Performs side effects in function components",
     "difficulty": "medium",
@@ -251,7 +251,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "Nextjs",
     "question": "What is the purpose of 'getServerSideProps' in Next.js?",
     "correct_answer": "Fetching data at request time",
     "difficulty": "hard",
@@ -263,7 +263,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Programing",
+    "category": "Django",
     "question": "What does the 'render()' function do in Django?",
     "correct_answer": "Renders an HTML template with a context dictionary",
     "difficulty": "medium",
@@ -274,6 +274,9 @@ const quizData = [{
     ],
     "type": "multiple"
 },
+
+
+
 {
     "category": "HTML",
     "question": "What is the purpose of the <a> tag in HTML?",
@@ -995,7 +998,7 @@ const quizData = [{
 
 
 {
-    "category": "Python - Dictionary",
+    "category": "Python",
     "question": "In Python, which method is used to retrieve all keys from a dictionary?",
     "correct_answer": "keys()",
     "difficulty": "hard",
@@ -1007,7 +1010,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Array",
+    "category": "JavaScript",
     "question": "In JavaScript, what does the 'reduce()' method do?",
     "correct_answer": "Reduces an array to a single value by executing a reducer function",
     "difficulty": "hard",
@@ -1019,7 +1022,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - String",
+    "category": "Python",
     "question": "In Python, how can you check if a string starts with a specific prefix?",
     "correct_answer": "startswith()",
     "difficulty": "hard",
@@ -1031,7 +1034,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Set",
+    "category": "JavaScript",
     "question": "In JavaScript, which method checks if a value exists in a Set?",
     "correct_answer": "has()",
     "difficulty": "hard",
@@ -1043,7 +1046,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - Tuple",
+    "category": "Python",
     "question": "In Python, what happens if you try to modify a value in a tuple?",
     "correct_answer": "An error is raised because tuples are immutable",
     "difficulty": "hard",
@@ -1055,7 +1058,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - String",
+    "category": "JavaScript",
     "question": "In JavaScript, which method is used to find the index of the first occurrence of a substring in a string?",
     "correct_answer": "indexOf()",
     "difficulty": "hard",
@@ -1067,7 +1070,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - List",
+    "category": "Python",
     "question": "In Python, how do you remove an item at a specific index in a list?",
     "correct_answer": "Use the del statement",
     "difficulty": "hard",
@@ -1079,7 +1082,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Object",
+    "category": "JavaScript",
     "question": "In JavaScript, how can you iterate over the keys of an object?",
     "correct_answer": "Use Object.keys(obj) and a for loop",
     "difficulty": "hard",
@@ -1091,7 +1094,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - Set",
+    "category": "Python",
     "question": "In Python, which method is used to add an element to a set?",
     "correct_answer": "add()",
     "difficulty": "hard",
@@ -1103,7 +1106,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Map",
+    "category": "JavaScript",
     "question": "In JavaScript, how do you check if a key exists in a Map?",
     "correct_answer": "has()",
     "difficulty": "hard",
@@ -1115,7 +1118,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - String",
+    "category": "Python",
     "question": "In Python, how do you reverse a string?",
     "correct_answer": "Using slicing with [::-1]",
     "difficulty": "hard",
@@ -1127,7 +1130,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Array",
+    "category": "JavaScript",
     "question": "In JavaScript, what does the 'flat()' method do?",
     "correct_answer": "Flattens nested arrays into a single array",
     "difficulty": "hard",
@@ -1139,7 +1142,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - Dictionary",
+    "category": "Python",
     "question": "In Python, how can you merge two dictionaries?",
     "correct_answer": "Use the ** operator or the update() method",
     "difficulty": "hard",
@@ -1151,7 +1154,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - String",
+    "category": "JavaScript",
     "question": "In JavaScript, what does the 'slice()' method do for strings?",
     "correct_answer": "Extracts a section of a string without modifying the original",
     "difficulty": "hard",
@@ -1167,7 +1170,7 @@ const quizData = [{
 
 
 {
-    "category": "Python - List",
+    "category": "Python",
     "question": "In Python, given the list `[1, 2, [3, 4], 5]`, how can you create a flat list `[1, 2, 3, 4, 5]`?",
     "correct_answer": "Use list comprehension: `[item for sublist in lst for item in (sublist if isinstance(sublist, list) else [sublist])]`",
     "difficulty": "hard",
@@ -1179,7 +1182,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Array",
+    "category": "JavaScript",
     "question": "In JavaScript, how can you find the longest string in the array `['cat', 'elephant', 'dinosaur']`?",
     "correct_answer": "Use `arr.reduce((a, b) => a.length > b.length ? a : b)`",
     "difficulty": "hard",
@@ -1191,7 +1194,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - Dictionary",
+    "category": "Python",
     "question": "In Python, how can you create a dictionary by zipping two lists `['a', 'b']` and `[1, 2]`?",
     "correct_answer": "Use `dict(zip(['a', 'b'], [1, 2]))`",
     "difficulty": "hard",
@@ -1203,7 +1206,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - String",
+    "category": "JavaScript",
     "question": "In JavaScript, how do you reverse a string `hello`?",
     "correct_answer": "Use `str.split('').reverse().join('')`",
     "difficulty": "hard",
@@ -1215,7 +1218,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - Set",
+    "category": "Python",
     "question": "In Python, given two sets `{1, 2, 3}` and `{3, 4, 5}`, how can you find the union?",
     "correct_answer": "Use `set1 | set2`",
     "difficulty": "hard",
@@ -1227,7 +1230,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Object",
+    "category": "JavaScript",
     "question": "In JavaScript, how can you shallow clone an object `{a: 1, b: 2}`?",
     "correct_answer": "Use `Object.assign({}, obj)`",
     "difficulty": "hard",
@@ -1239,7 +1242,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - Tuple",
+    "category": "Python",
     "question": "In Python, how do you unpack a tuple `(1, 2, 3)` into variables a, b, and c?",
     "correct_answer": "Use `a, b, c = (1, 2, 3)`",
     "difficulty": "hard",
@@ -1251,7 +1254,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Array",
+    "category": "JavaScript",
     "question": "In JavaScript, how can you remove duplicates from an array `[1, 2, 2, 3]`?",
     "correct_answer": "Use `Array.from(new Set(arr))`",
     "difficulty": "hard",
@@ -1263,7 +1266,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - String",
+    "category": "Python",
     "question": "In Python, how can you check if all characters in a string are alphanumeric?",
     "correct_answer": "Use `str.isalnum()`",
     "difficulty": "hard",
@@ -1275,7 +1278,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Function",
+    "category": "JavaScript",
     "question": "In JavaScript, how can you call a function with an array of arguments `[1, 2, 3]`?",
     "correct_answer": "Use `func.apply(null, arr)`",
     "difficulty": "hard",
@@ -1287,7 +1290,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "Python - List",
+    "category": "Python",
     "question": "In Python, how can you sort a list of tuples `[(1, 'b'), (3, 'a'), (2, 'c')]` by the second value in each tuple?",
     "correct_answer": "Use `sorted(lst, key=lambda x: x[1])`",
     "difficulty": "hard",
@@ -1299,7 +1302,7 @@ const quizData = [{
     "type": "multiple"
 },
 {
-    "category": "JavaScript - Set",
+    "category": "JavaScript",
     "question": "In JavaScript, how do you find the intersection of two Sets `a` and `b`?",
     "correct_answer": "Use `new Set([...a].filter(x => b.has(x)))`",
     "difficulty": "hard",
@@ -1309,9 +1312,504 @@ const quizData = [{
         "Use `Set.intersection(a, b)`"
     ],
     "type": "multiple"
-}
+},
 
 
+
+{
+    "category": "JavaScript",
+    "question": "What does `Math.ceil(4.3)` return?",
+    "correct_answer": "5",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "4",
+        "4.5",
+        "Undefined"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "How do you generate a random integer between 0 and 10 using `Math`?",
+    "correct_answer": "Math.floor(Math.random() * 11)",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Math.random() * 10",
+        "Math.ceil(Math.random() * 10)",
+        "Math.round(Math.random() * 10)"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "What does `Math.max()` return when called without arguments?",
+    "correct_answer": "-Infinity",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "0",
+        "Infinity",
+        "NaN"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "How can you calculate the square root of a number in JavaScript?",
+    "correct_answer": "Math.sqrt(number)",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "number.sqrt()",
+        "Math.power(number, 0.5)",
+        "Math.pow(number, 2)"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "Which method is used to add a new element to the DOM?",
+    "correct_answer": "document.createElement()",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "document.appendChild()",
+        "document.newElement()",
+        "document.addElement()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "What does `document.querySelector('div')` do?",
+    "correct_answer": "Selects the first `<div>` element in the DOM",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "Selects all `<div>` elements in the DOM",
+        "Selects the last `<div>` element in the DOM",
+        "Throws an error if no `<div>` exists"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "How do you remove an element from the DOM?",
+    "correct_answer": "element.remove()",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "document.removeChild(element)",
+        "element.detach()",
+        "element.delete()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "What is the purpose of `event.preventDefault()`?",
+    "correct_answer": "Prevents the default action of an event",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "Stops the event from bubbling up",
+        "Prevents the event from being fired",
+        "Removes the event listener"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "What is the difference between `innerHTML` and `textContent`?",
+    "correct_answer": "`innerHTML` includes HTML tags, while `textContent` only includes text",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "`innerHTML` escapes HTML tags, while `textContent` doesn't",
+        "`textContent` can execute JavaScript code, while `innerHTML` can't",
+        "`innerHTML` is faster than `textContent`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "How do you attach an event listener to an element?",
+    "correct_answer": "element.addEventListener('click', callback)",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "element.on('click', callback)",
+        "element.listen('click', callback)",
+        "element.bindEvent('click', callback)"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "How can you check if an element has a specific class?",
+    "correct_answer": "element.classList.contains('className')",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "element.hasClass('className')",
+        "element.getClass('className')",
+        "element.classList.has('className')"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "What does `document.getElementById('id')` return if no matching element is found?",
+    "correct_answer": "null",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "undefined",
+        "An empty string",
+        "Throws an error"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "What does `Math.trunc(-4.7)` return?",
+    "correct_answer": "-4",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "-5",
+        "-4.7",
+        "NaN"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "What is the output of `Math.pow(2, 3)`?",
+    "correct_answer": "8",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "6",
+        "9",
+        "16"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "How can you round a number to the nearest integer in JavaScript?",
+    "correct_answer": "Use `Math.round()`",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "Use `Math.ceil()`",
+        "Use `Math.floor()`",
+        "Use `Math.trunc()`"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "Which method calculates the absolute value of a number?",
+    "correct_answer": "Math.abs()",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "Math.absolute()",
+        "Math.absValue()",
+        "Math.val()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "Which method is used to stop event propagation?",
+    "correct_answer": "event.stopPropagation()",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "event.preventDefault()",
+        "event.stopEvent()",
+        "event.haltPropagation()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "How do you set an attribute on an element?",
+    "correct_answer": "element.setAttribute('attr', 'value')",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "element.addAttribute('attr', 'value')",
+        "element.attr('attr', 'value')",
+        "element.property('attr', 'value')"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "Which property gives you the height of the visible content of an element, including padding?",
+    "correct_answer": "element.clientHeight",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "element.offsetHeight",
+        "element.scrollHeight",
+        "element.height"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "JavaScript",
+    "question": "How can you scroll an element into view?",
+    "correct_answer": "element.scrollIntoView()",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "element.scrollToView()",
+        "element.scrollInView()",
+        "element.scrollTo()"
+    ],
+    "type": "multiple"
+},
+
+
+{
+    "category": "Python",
+    "question": "What is the result of `5 + 2 * 3` in Python?",
+    "correct_answer": "11",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "21",
+        "15",
+        "10"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What does the `is` operator compare in Python?",
+    "correct_answer": "Identity of objects",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "Equality of values",
+        "Type of objects",
+        "Memory size of objects"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What is the result of `type([]) == list`?",
+    "correct_answer": "True",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "False",
+        "None",
+        "Error"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "Which data type is mutable in Python?",
+    "correct_answer": "List",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "Tuple",
+        "String",
+        "Int"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "Which exception is raised when dividing by zero in Python?",
+    "correct_answer": "ZeroDivisionError",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "ValueError",
+        "ArithmeticError",
+        "TypeError"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "Which statement about Python's garbage collection is correct?",
+    "correct_answer": "It uses reference counting and cyclic garbage collection",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "It only uses cyclic garbage collection",
+        "It uses manual memory management",
+        "It relies entirely on the operating system"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What is the output of `len({1: 'a', 2: 'b', 3: 'c'})`?",
+    "correct_answer": "3",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "6",
+        "1",
+        "Error"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What is the base class for all built-in exceptions in Python?",
+    "correct_answer": "BaseException",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "Exception",
+        "Error",
+        "Object"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What happens to a variable in Python when it goes out of scope?",
+    "correct_answer": "Its reference count decreases",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "It is deleted immediately",
+        "It becomes None",
+        "It is moved to disk"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What is the difference between a tuple and a list in Python?",
+    "correct_answer": "Tuples are immutable, lists are mutable",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "Lists are faster than tuples",
+        "Tuples can only hold unique items",
+        "Lists cannot hold tuples"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What does `a += b` mean in Python?",
+    "correct_answer": "a = a + b",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "a = a - b",
+        "a = b",
+        "a = a * b"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What type of error is raised for an invalid index in a list?",
+    "correct_answer": "IndexError",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "ValueError",
+        "KeyError",
+        "TypeError"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "Which module in Python can be used to manage garbage collection?",
+    "correct_answer": "gc",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "sys",
+        "os",
+        "memory"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What is the output of `True and False or True` in Python?",
+    "correct_answer": "True",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "False",
+        "None",
+        "Error"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "Which data type does not allow duplicate values?",
+    "correct_answer": "Set",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "List",
+        "Tuple",
+        "Dictionary"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What does `not not True` evaluate to?",
+    "correct_answer": "True",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "False",
+        "None",
+        "Error"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "Which keyword is used to handle exceptions in Python?",
+    "correct_answer": "try",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "catch",
+        "handle",
+        "error"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What is the result of `1 == True`?",
+    "correct_answer": "True",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "False",
+        "None",
+        "Error"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "Which function is used to force garbage collection in Python?",
+    "correct_answer": "gc.collect()",
+    "difficulty": "hard",
+    "incorrect_answers": [
+        "sys.gc()",
+        "os.collect()",
+        "memory.clean()"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What is the result of `5 ** 2`?",
+    "correct_answer": "25",
+    "difficulty": "easy",
+    "incorrect_answers": [
+        "10",
+        "7",
+        "Error"
+    ],
+    "type": "multiple"
+},
+{
+    "category": "Python",
+    "question": "What happens if no `except` block matches an exception?",
+    "correct_answer": "The program terminates with an error",
+    "difficulty": "medium",
+    "incorrect_answers": [
+        "The program continues",
+        "The program logs the error and continues",
+        "The program raises a Warning"
+    ],
+    "type": "multiple"
+},
 
 ]
 export default quizData;
