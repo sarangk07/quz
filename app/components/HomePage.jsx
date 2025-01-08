@@ -322,12 +322,15 @@ const fetchQuestions = async () => {
             Quit
           </button>
           <div className='mb-4 flex flex-col absolute justify-start items-start top-11 left-2'>
-            <div className='flex'>
-            <p onClick={()=>setTheme('amber')} className='mr-4 rotate-45 bg-amber-500 w-5 h-5'/>
-            <p onClick={()=>setTheme('red')} className='mr-4 w-5 h-5 rotate-45 bg-red-600'/>
-            <p onClick={()=>setTheme('violet')} className='mr-4 w-5 h-5 rotate-45 bg-violet-600'/>
-            <p onClick={()=>setTheme('default')} className='rotate-45 bg-emerald-500 w-5 h-5'/>
+            <div className='flex cursor-pointer'>
+            <p onClick={()=>setTheme('amber')} className='mr-4 hover:animate-pulse rotate-45 bg-amber-500 w-5 h-5'/>
+            <p onClick={()=>setTheme('red')} className='mr-4 w-5 h-5 hover:animate-pulse rotate-45 bg-red-600'/>
+            <p onClick={()=>setTheme('violet')} className='mr-4 w-5 h-5 hover:animate-pulse rotate-45 bg-violet-600'/>
+            <p onClick={()=>setTheme('default')} className='rotate-45 hover:animate-pulse bg-emerald-500 w-5 h-5'/>
             </div>
+
+
+
             <div className='flex pl-2 items-start justify-start'>
             <p className={`${isFrozen ? 'text-emerald-300 font-extrabold font-mono' : ''} text-2xl mb-2 ${timeLeft<10 ? 'animate-ping text-red-600' : '' }  mt-5`}>{timeLeft}</p>
             </div>
@@ -370,7 +373,7 @@ const fetchQuestions = async () => {
             <div className='relative flex justify-center items-center md:w-[720px] md:h-[500px] w-72 h-64 '>
              
               <div className={` flex flex-col items-center justify-center `}>
-                <h1 className={`${timeLeft < 7 ? ' ' : ' '} relative -top-10 break-all text-center ${theme == 'amber' ? 'bg-amber-500' : theme == 'violet' ? 'bg-violet-600' : theme == 'red' ? 'bg-red-600' : 'bg-emerald-700 ' } rounded-sm p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-50 font-bold' }`}>
+                <h1 className={`${timeLeft < 7 ? ' ' : ' '} relative border-4 border-zinc-900 border-double -top-10 break-all text-center ${theme == 'amber' ? 'bg-amber-500' : theme == 'violet' ? 'bg-violet-600' : theme == 'red' ? 'bg-red-600' : 'bg-emerald-700 ' } rounded-sm p-2 ${currentQuestion && currentQuestion.type == "boolean" ?" text-zinc-900 font-bold" :' text-cyan-50 font-bold' }`}>
                 <p className='mt-0 mb-3 relative border w-fit px-1 bg-transparent backdrop-blur-3xl text-xs '>{currentQuestion.difficulty ?? ''}</p>
                 {currentQuestion.question} 
               
@@ -401,10 +404,13 @@ const fetchQuestions = async () => {
         </div>
         </>
       ) : choice1 === 'finished' ? (
-        <div className='flex flex-col justify-center items-center w-full h-screen bg-black text-cyan-300'>
-          <h1 className='text-3xl mb-4'>Finished</h1>
-          <p className='text-xl'>You scored {score} out of {questions.length}</p>
-          <button className='mt-4 bg-blue-500 text-white p-2 rounded' onClick={() => {
+        <div className='flex flex-col justify-center items-center w-full h-screen bg-black text-emerald-400'>
+          <div className='bg-zinc-800  border-4 border-zinc-900 absolute w-56 h-48 rounded-tl-full rounded-br-full'/>
+          <div className='absolute w-20 animate-pulse h-20 bg-zinc-700 rounded-full'/>
+          
+          <h1 className='text-3xl relative mb-4'>Finished</h1>
+          <p className='text-xl relative'>You scored <span className='text-cyan-500'>{score}</span> out of {questions.length}</p>
+          <button className='mt-4 relative bg-emerald-600 text-white p-2 rounded' onClick={() => {
               dispatch(setChoice1('default'))
               dispatch(setScore(0))
               dispatch(setCurrentQuestionIndex(0))
@@ -420,13 +426,15 @@ const fetchQuestions = async () => {
         <div className='bg-black w-full h-screen text-white flex flex-col justify-center items-center font-mono'>
 
           <Image src="/QUZlogo.png" alt="" width={200} height={200} />
+          <p className='text-sm font-mono text-emerald-400'> " Test Yourself " </p>
+
 
           <p className='md:text-2xl text-xl'>Welcome to Q<span className='font-bold font-serif text-red-600 '>U</span>Z</p>
           
-          <div className='mt-4 flex flex-col '>
+          <div className='mt-4 flex flex-col items-center'>
             
 
-            <label htmlFor="category">Choose a category:</label>
+            <label htmlFor="category">Choose a Category:</label>
             <select
                 className="block w-full px-4 py-2 mt-4 text-white bg-black border border-gray-700 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 id="category"
@@ -446,7 +454,7 @@ const fetchQuestions = async () => {
             </select>
 
 
-            <button className='mb-4 mt-5 border-2' onClick={() => {
+            <button className='mb-4 mt-5 px-5 border-2' onClick={() => {
               dispatch(setChoice1('all'))
               dispatch(setScore(0)) 
               dispatch(setCurrentQuestionIndex(0)) 
