@@ -33,6 +33,8 @@ function HomePage() {
 
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [striks,setStriks] = useState(0)
+
    
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value); 
@@ -187,6 +189,9 @@ const fetchQuestions = async () => {
       
       if (isAnswerCorrect) {
           dispatch(setScore(score + 1));
+          setStriks(striks+1)
+      }else{
+          setStriks(0)
       }
       
       // showing correct or wrong answer effect
@@ -334,11 +339,13 @@ const fetchQuestions = async () => {
             <div className='flex pl-2 items-start justify-start'>
             <p className={`${isFrozen ? 'text-emerald-300 font-extrabold font-mono' : ''} text-2xl mb-2 ${timeLeft<10 ? 'animate-ping text-red-600' : '' }  mt-5`}>{timeLeft}</p>
             </div>
+
           </div>
-          <div className='absolute text-center top-1'>
+          <div className='absolute flex flex-col justify-center items-center text-center top-1'>
             <p className='text-xs'>{selectedCategory}</p>
             <p className='mt-4 text-xs '>Score: <span className={`${score>10 ? 'text-blue-600' : score>20 ? 'text-green-600' : ''}`}>{score}</span></p>
             <p className='text-sm'>Question {currentQuestionIndex + 1} of {questions.length}</p>
+            <p className={`${striks <= 0 ?'hidden' :'flex'} ${striks >= 5 ? 'text-blue-500' : striks >= 10  ? 'text-red-500' : 'text-emerald-300'}  justify-center text-lg  font-extrabold font-mono`}>{striks}</p>
           </div>
 
           
@@ -383,15 +390,15 @@ const fetchQuestions = async () => {
                   <div className='flex  w-fit flex-col items-center align-baseline space-y-5'>
                       {currentQuestion.options.map((option, index) => (
                           <p 
-                              key={index}
-                              className={`p-1 cursor-pointer rounded-md text-zinc-200 border-2 border-zinc-300 font-mono font-bold 
-                                  ${removedOptions.includes(option) ? 'line-through opacity-50' : ''} 
-                                  ${selectedAnswer === option && isCorrect ? 'bg-green-500' : ''} 
-                                  ${selectedAnswer === option && !isCorrect ? 'bg-red-500' : ''} 
-                                  ${option === currentQuestion.correct_answer && !isCorrect && selectedAnswer !== null ? 'bg-green-500' : ''}`}
-                              onClick={() => handleAnswerClick(option)}
+                            key={index}
+                            className={`p-1 cursor-pointer rounded-md text-zinc-200 border-2 border-zinc-300 font-mono font-bold 
+                              ${removedOptions.includes(option) ? 'line-through opacity-50' : ''} 
+                              ${selectedAnswer === option && isCorrect ? 'bg-green-500' : ''} 
+                              ${selectedAnswer === option && !isCorrect ? 'bg-red-500' : ''} 
+                              ${option === currentQuestion.correct_answer && !isCorrect && selectedAnswer !== null ? 'bg-green-500' : ''}`}
+                            onClick={() => handleAnswerClick(option)}
                           >
-                              {option}
+                            {option}
                           </p>
                       ))}
                   </div>
