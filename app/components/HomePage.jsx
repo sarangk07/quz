@@ -345,7 +345,7 @@ const fetchQuestions = async () => {
             <p className='text-xs'>{selectedCategory}</p>
             <p className='mt-4 text-xs '>Score: <span className={`${score>10 ? 'text-blue-600' : score>20 ? 'text-green-600' : ''}`}>{score}</span></p>
             <p className='text-sm'>Question {currentQuestionIndex + 1} of {questions.length}</p>
-            <p className={`${striks <= 0 ?'hidden' :'flex'} ${striks >= 5 ? 'text-blue-500' : striks >= 10  ? 'text-red-500' : 'text-emerald-300'}  justify-center text-lg  font-extrabold font-mono`}>{striks}</p>
+            <p className={`${striks <= 0 ?'hidden' :'flex'} ${striks >= 5 ? 'text-blue-500' : striks >= 10  ? 'text-red-500' : 'text-emerald-300'}  justify-center text-lg animate-pulse font-extrabold font-mono`}>{striks} <span className='text-sm flex justify-end items-end'>X</span></p>
           </div>
 
           
