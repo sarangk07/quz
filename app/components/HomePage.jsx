@@ -293,6 +293,11 @@ const fetchQuestions = async () => {
     dispatch(setIsFrozen(false));
   };
 
+
+  useEffect(()=>{
+    setStriks(0)
+  },[choice1])
+
   //---------------------------------------------------------------
   
 
@@ -314,7 +319,7 @@ const fetchQuestions = async () => {
       />
       {choice1 === 'selected' ? (
         <div>
-          <button className='mb-4' onClick={() => dispatch(setChoice1('default'))}>
+          <button className='mb-4' onClick={()=>dispatch(setChoice1('default'))}>
             back
           </button>
           selected
